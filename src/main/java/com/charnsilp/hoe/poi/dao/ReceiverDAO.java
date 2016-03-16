@@ -1,4 +1,4 @@
-package th.co.autumn.hoe.demo;
+package com.charnsilp.hoe.poi.dao;
 
 import org.apache.hadoop.io.ObjectWritable;
 import org.apache.hadoop.io.Text;
@@ -6,20 +6,22 @@ import org.apache.hadoop.io.Text;
 /**
  * Created by tek on 3/16/2016 AD.
  */
-public class ReceiverDAO extends ObjectWritable {
+public class ReceiverDAO {
 
     public static String currentDate ;
 
     public ReceiverDAO(String bank, String bus, String amount) {
+        super();
         this.bank = bank;
         this.bus = bus;
         this.amount = amount;
-
+        this.date = currentDate;
     }
 
     private String bank ;
-    private String date ;
     private String bus ;
+    private String date ;
+
     private String amount ;
 
     public String getCurrentDate(){
@@ -55,5 +57,10 @@ public class ReceiverDAO extends ObjectWritable {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return date+',' +bank +','+  bus+',' + amount ;
     }
 }
